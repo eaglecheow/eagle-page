@@ -4,6 +4,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'flexboxgrid/dist/flexboxgrid.css';
 import PropTypes from 'prop-types';
 
+import HomePage from './Pages/HomePage/HomePage';
+import AboutPage from './Pages/AboutPage/AboutPage';
+import ProjectsPage from './Pages/ProjectsPage/ProjectsPage';
+import ProfilePage from './Pages/ProfilePage/ProfilePage';
+
 const PageCollection = [
   {name: "home", displayName: "Home Page", target: () => <HomePage/>, isActive: true},
   {name: "profile", displayName: "Profile", target: () => <ProfilePage/>},
@@ -11,37 +16,6 @@ const PageCollection = [
   {name: "about", displayName: "About", target: () => <AboutPage/>},
 ];
 
-const HomePage = () => {
-  return (
-    <div>
-      <h1>This is Home Page</h1>
-    </div>
-  );
-}
-
-const ProfilePage = () => {
-  return (
-    <div>
-      <h1>This is Profile Page</h1>
-    </div>
-  );
-}
-
-const ProjectsPage = () => {
-  return (
-    <div>
-      <h1>This is Projects Page</h1>
-    </div>
-  );
-}
-
-const AboutPage = () => {
-  return (
-    <div>
-      <h1>This is About Page</h1>
-    </div>
-  )
-}
 
 const AppContainer = (props) => {
   let ActivePage = props.activePage;
@@ -88,7 +62,7 @@ class App extends Component {
     return (
       <div>
         <NavBar links={PageCollection} onLinkClicked={this.linkClicked}/>
-        <AppContainer activePage={this.state.activePage}/>>
+        <AppContainer activePage={this.state.activePage}/>
       </div>
     );
   }
